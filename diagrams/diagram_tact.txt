@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "yuimyun",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 57,
+      "left": -102.6,
+      "rotate": 90,
+      "attrs": { "color": "red", "bounce": "0" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 23.15,
+      "left": -67.2,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "r1:2", "esp:3V3", "red", [ "v0" ] ],
+    [ "r1:1", "btn1:2.l", "red", [ "v0", "h-9.6" ] ],
+    [ "btn1:1.r", "esp:14", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

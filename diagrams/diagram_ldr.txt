@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "yuimyun",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 13.7,
+      "left": 12.6,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": -16, "left": -47.2, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 188.8,
+      "left": -80.8,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ldr1:AO", "esp:VP", "orange", [ "h9.6", "v18.5", "h-28.8" ] ],
+    [ "ldr1:GND", "esp:GND.2", "black", [ "h15", "v47.6", "h-124.9" ] ],
+    [ "ldr1:VCC", "esp:VIN", "red", [ "h19.2", "v52", "h-134.4" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-8", "v-48", "h105.5" ] ],
+    [ "lcd1:VCC", "esp:VIN", "red", [ "h-13", "v-169", "h86.4" ] ],
+    [ "lcd1:SDA", "esp:D21", "green", [ "h-18", "v-61", "h201.6" ] ],
+    [ "lcd1:SCL", "esp:D22", "blue", [ "h-23", "v-65", "h240" ] ]
+  ],
+  "dependencies": {}
+}
